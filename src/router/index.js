@@ -200,8 +200,18 @@ const router = createRouter({
                 },
                 {
                     path: '/',
-                    name: 'dashboard',
-                    component: () => import('@/views/Dashboard.vue')
+                    name: 'survey',
+                    component: () => import('@/views/Survey1.vue')
+                },
+                {
+                    path: '/survey2',
+                    name: 'survey2',
+                    component: () => import('@/views/Survey2.vue')
+                },
+                {
+                    path: '/surveyComplete',
+                    name: 'surveyComplete',
+                    component: () => import('@/views/SurveyComplete.vue')
                 },
                 {
                     path: '/uikit/formlayout',

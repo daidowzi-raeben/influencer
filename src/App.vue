@@ -41,10 +41,10 @@ export default {
 
 <template>
     <div>
-        <div v-if="LOADING">
+        <!-- <div v-if="LOADING">
             <div style="position: fixed; width: 100%; height: 100%; background: #000; z-index: 9999; opacity: 0.7"></div>
             <img src="/src/static/loading.webp" style="margin-left: -50px; margin-top: -50px; position: absolute; z-index: 9999; left: 50%; top: 50%; width: 100px; height: 100px" />
-        </div>
+        </div> -->
         <router-view />
     </div>
 </template>

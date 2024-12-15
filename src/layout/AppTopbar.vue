@@ -12,9 +12,9 @@ const router = useRouter();
 
 const isUser = _isUser();
 
-if (!isUser) {
-    router.push('/login');
-}
+// if (!isUser) {
+//     router.push('/login');
+// }
 onMounted(() => {
     bindOutsideClickListener();
 });
