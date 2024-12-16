@@ -57,7 +57,7 @@ const isOutsideClicked = (event) => {
 </script>
 
 <template>
-    <div class="layout-wrapper" :class="containerClass">
+    <!-- <div class="layout-wrapper" :class="containerClass">
         <app-topbar></app-topbar>
         <div class="layout-sidebar">
             <app-sidebar></app-sidebar>
@@ -71,7 +71,10 @@ const isOutsideClicked = (event) => {
         <app-config></app-config>
         <div class="layout-mask"></div>
     </div>
-    <Toast />
+    <Toast /> -->
+    <div class="survey-wrap">
+        <router-view></router-view>
+    </div>
 </template>
 
 <style lang="scss" scoped></style>
