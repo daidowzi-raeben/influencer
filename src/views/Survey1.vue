@@ -1,3 +1,14 @@
+<script setup>
+ import { useRouter } from 'vue-router';
+ import { ref } from 'vue';
+ import { watch } from 'vue';
+
+ const router = useRouter();
+
+  const agreeYn = ref('');
+
+</script>
+
 <template>
   <div class="wrap">
     <img src="../static/images/top_banner.png" />
@@ -43,34 +54,29 @@
         </ul>
         <div class="space"></div>
         <div class="check-wrap">
-            <input type="radio" id="radio1" name="radio" required />
+            <input type="radio" id="radio1" name="radio" v-model="agreeYn" value="Y" required />
             <label for="radio1">1. Agree</label>
         </div>
         <div class="check-wrap">
-            <input type="radio" id="radio2" name="radio" required />
+            <input type="radio" id="radio2" name="radio" v-model="agreeYn" value="N" required />
             <label for="radio2">2. Disagree</label>
         </div>
         <div class="space"></div>
     </div>
   </div>
   <div class="btn-wrap">
-      <router-link to="/survey2" class="btn">next</router-link>
+      <button @click="()=>{
+        if(agreeYn == 'N') return;
+        router.push({
+          path: '/survey2',
+          state: { agree: 'Y' }
+        });
+
+      }" class="btn">next</button>
   </div>
 </template>
 
-<script>
-export default {
-  data() {
-    return {};
-  },
-  computed: {
-  },
-  components: {},
-  created() {},
-  mounted() {},
-  methods: {},
-};
-</script>
+
 
 
 <style>
