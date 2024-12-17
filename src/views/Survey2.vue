@@ -16,7 +16,7 @@
     onMounted(() => {
         const agreeYn = window.history.state?.agree;
         if(agreeYn != 'Y'){
-            alert("잘못된 접근입니다.");
+            alert("Invalid approach.");
             router.replace("/");
         }
     });
