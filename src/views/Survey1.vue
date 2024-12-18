@@ -15,31 +15,31 @@
     <div class="box top-line">
         <h1 class="box-tit">Join Us as a "Creator" on Keverything!</h1>
         <p class="box-txt">
-          Become a "Creator" on Keverything! Connect a variety of Korean products to your social media accounts, promote and sell them, and earn profits. You choose only the products you love. we handle the rest, including shipping, payments, and customer support. Join us today and start earning effortlessly!
+          Become a "Creator" on Keverything! Be the first to try a variety of Korean products and share them on your social media accounts. Promote, sell, and earn profits.  All you have to do is choose the products you love and we will handle the rest, including shipping, payments, and customer support. Join us today and start earning effortlessly! 
         </p>
         <p class="box-txt">
-          We, <strong>The Kore Impact INC</strong>, headquartered in Beverly Hills, California, are committed to promoting Korea's K-Wave in the U.S. market. Our <strong>Keverything platform</strong>, launching in December 2024, will offer a valuable opportunity to connect a wide variety of Korean products and services to the U.S. market in collaboration with over 500,000 global influencers.
+          We, <strong>The Kore Impact INC</strong>, headquartered in Beverly Hills, California, are committed to promoting Korea's K-Wave in the U.S. market. Our <strong>Keverything App</strong>, launching in December 2024, will offer a valuable opportunity to connect a wide variety of Korean products and services to the U.S. market in collaboration with over 500,000 global influencers.
         </p>
         <p class="box-txt">
-          We are currently recruiting "Creators" to join us in expanding into the U.S. market through <strong>Keverything</strong>. We kindly ask for the support and participation of many Korean companies, and we would be grateful if you could provide your valuable information.
+          We are currently recruiting "Creators" to join us in expanding into the U.S. market through <strong>Keverything</strong>. We kindly ask for the support and participation of many creators, and we would be grateful if you could provide your valuable information.
         </p>
         <p class="box-txt">
           Thank you for your interest and participation.
         </p>
         <p class="box-txt">
-          <strong>Inauiry</strong>
+          <strong>Inquiry</strong>
         </p>
         <ul>
             <li>uskoreimpct@gmail.com</li>
         </ul>
         <div class="box-line"></div>
-        <p class="box-txt color-red">* Mark is a required question</p>
+        <p class="box-txt color-red">All (*) marked fields are mandatory</p>
     </div>
     <div class="box">
         <h5>* Please agree to the collection and use of personal information. <span class="color-red">*</span></h5>
         <p class="box-txt">
             <strong>Consent for the Collection and Use of Your Information in Accordance with CCPA Section 1798.100, CCPA Section 1798.105, CPRA Section 1798.121, and CCPA/CPRA in California, USA.</strong><br />
-            We request your consent for the collection and use of your personal information in accordance with the laws outlined below. Please read the following information carefully and indicate your consent.
+            We request your consent for the collection and use of your personal information in accordance with the laws outlined below. Please read the following information carefully and indicate whether you consent.
         </p>
         <ul>
             <li><b>Purpose of Collection and Use</b>&nbsp;&nbsp;<br>
