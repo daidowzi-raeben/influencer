@@ -1,0 +1,1 @@
+const r=()=>sessionStorage.getItem("user_id"),c=e=>{const t=new Date(e),s=t.getFullYear(),a=("0"+(t.getMonth()+1)).slice(-2),n=("0"+t.getDate()).slice(-2);return`${s}-${a}-${n}`},d=e=>{const t=new Date(e),s=t.getFullYear(),a=("0"+(t.getMonth()+1)).slice(-2),n=("0"+t.getDate()).slice(-2);return`${s}.${a}.${n}`};export{r as _,d as a,c as b};
