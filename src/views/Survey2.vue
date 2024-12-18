@@ -10,8 +10,8 @@
     const isSubmit = ref(false);
     const checkEmail = ref(false);
 
-    const mediaArr = ['YouTube','Facebook','Instagram','TikTok','etc'];
-    const contentArr = ['Food','Beauty, Cosmetic','Fashion','Music','Life','etc'];
+    const mediaArr = ['YouTube','Facebook','Instagram','TikTok','Other'];
+    const contentArr = ['Food','Beauty, Cosmetic','Fashion','Music','Life','Other'];
 
     onMounted(() => {
         const agreeYn = window.history.state?.agree;
@@ -92,7 +92,7 @@
     <div class="box top-line">
         <h1 class="box-tit">Join Us as a "Creator" on Keverything!</h1>
         <div class="box-line"></div>
-        <p class="box-txt color-red">* Mark is a required question</p>
+        <p class="box-txt color-red">All (*) marked fields are mandatory</p>
     </div>
     <div class="box">
         <h4 class="bg-tit">Join Us as a "Creator" on Keverything!</h4>
@@ -127,35 +127,35 @@
         </div>
         <p class="input-guide">※ This is an essential question</p>
     </div>
-    <div class="box">
-        <h5>4. Could you please provide the link to your primary social media account?</h5>
-        <div class="input-wrap">
-            <input type="text" placeholder="my answer" class="input-text" v-model="data.mediaLink" required />
-        </div>
-    </div>
     <div class="box" :class="isSubmit && data.name == '' ? 'error' : null">
-        <h5>5. What is your name? <span class="color-red">*</span></h5>
+        <h5>4. What is your name? <span class="color-red">*</span></h5>
         <div class="input-wrap">
             <input type="text" placeholder="my answer" class="input-text" v-model="data.name" required />
         </div>
         <p class="input-guide">※ This is an essential question</p>
     </div>
+    <div class="box">
+        <h5>5. Please provide the link to your primary social media account</h5>
+        <div class="input-wrap">
+            <input type="text" placeholder="my answer" class="input-text" v-model="data.mediaLink" required />
+        </div>
+    </div>
     <div class="box" :class="isSubmit && (data.email == ''|| !checkEmail) ? 'error' : null">
-        <h5>6. What is your Email Address? <span class="color-red">*</span></h5>
+        <h5>6. What is your Email address? <span class="color-red">*</span></h5>
         <div class="input-wrap">
             <input type="text" placeholder="my answer" class="input-text" v-model="data.email" required />
         </div>
         <p class="input-guide">※ Please check the email</p>
     </div>
     <div class="box" :class="isSubmit && data.phoneNumber == '' ? 'error' : null">
-        <h5>7. Could you please provide your contact information?  <span class="color-red">*</span></h5>
+        <h5>7. Please provide your cell number  <span class="color-red">*</span></h5>
         <div class="input-wrap">
             <input type="text" placeholder="my answer" class="input-text" v-model="data.phoneNumber" required />
         </div>
         <p class="input-guide">※ This is an essential question</p>
     </div>
     <div class="box">
-        <h5>8. If you have any questions, feel free to leave them below.</h5>
+        <h5>8. If you have any feedback or questions, feel free to leave them below</h5>
         <div class="input-wrap">
             <input type="text" placeholder="my answer" class="input-text w-100" v-model="data.questions"/>
         </div>
