@@ -5,7 +5,7 @@
 
  const router = useRouter();
 
-  const agreeYn = ref('');
+  const agreeYn = ref('N');
 
 </script>
 

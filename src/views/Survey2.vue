@@ -37,16 +37,19 @@
         (newVal) => {
             if (newVal) {
                 checkEmail.value = validateEmail(newVal);
+                console.log(checkEmail);
             }
         }
     );
 
     const submit = async()=>{
+
         isSubmit.value=true;
+
         if(data.accountYn == '' || 
             data.contentType.length <= 0 ||
             data.name == '' ||
-            (data.email == '' && !checkEmail) ||
+            (data.email == '' || !checkEmail.value) ||
             data.phoneNumber == '' 
         ){
             return;
