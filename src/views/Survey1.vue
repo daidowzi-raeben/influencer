@@ -7,6 +7,18 @@
 
   const agreeYn = ref('N');
 
+  const goNext = ()=>{
+    if(agreeYn.value == 'N'){
+      alert("Please check to agree.");
+      return;
+    }else{
+      router.push({
+      path: '/survey2',
+      state: { agree: 'Y' }
+    });
+  }
+}
+
 </script>
 
 <template>
@@ -65,14 +77,7 @@
     </div>
   </div>
   <div class="btn-wrap">
-      <button @click="()=>{
-        if(agreeYn == 'N') return;
-        router.push({
-          path: '/survey2',
-          state: { agree: 'Y' }
-        });
-
-      }" class="btn">next</button>
+      <button @click="goNext" class="btn">next</button>
   </div>
 </template>
 
