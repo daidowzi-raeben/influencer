@@ -42,7 +42,7 @@
           <strong>Inquiry</strong>
         </p>
         <ul>
-            <li>uskoreimpct@gmail.com</li>
+            <li>uskoreimpact@gmail.com</li>
         </ul>
         <div class="box-line"></div>
         <p class="box-txt color-red">All (*) marked fields are mandatory</p>

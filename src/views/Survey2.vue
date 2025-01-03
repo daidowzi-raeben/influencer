@@ -113,7 +113,7 @@
         <p class="input-guide">※ This is an essential question</p>
     </div>
     <div class="box">
-        <h5>2. If you answered "Yes" above, which social media accounts do you have?</h5>
+        <h5>2. If you answered "Yes" above, which social media accounts do you use?</h5>
         <div class="check-wrap" v-for="(item, index) in mediaArr" :key="index">
             <input type="radio" :id="item" name="radio2" v-model="data.accountType" :value="item" required />
             <label :for="item">{{ index + 1 }}. {{ item }}</label>
