@@ -11,7 +11,8 @@
     const checkEmail = ref(false);
 
     const mediaArr = ['YouTube','Facebook','Instagram','TikTok','Other'];
-    const contentArr = ['Food','Beauty, Cosmetic','Fashion','Music','Life','Other'];
+    const contentArr = ['Food','Beauty, Cosmetic','Fashion','Music','Life','etc'];
+    const activityArr = ['Product seeding','Product sales (utilizing API provided by Keverything), Cosmetic','Gonggu'];
 
     onMounted(() => {
         const agreeYn = window.history.state?.agree;
@@ -113,7 +114,7 @@
         <p class="input-guide">※ This is an essential question</p>
     </div>
     <div class="box">
-        <h5>2. If you answered "Yes" above, which social media accounts do you use?</h5>
+        <h5>2. If you answered "Yes" above, which social media accounts do you have?</h5>
         <div class="check-wrap" v-for="(item, index) in mediaArr" :key="index">
             <input type="radio" :id="item" name="radio2" v-model="data.accountType" :value="item" required />
             <label :for="item">{{ index + 1 }}. {{ item }}</label>
@@ -127,35 +128,62 @@
         </div>
         <p class="input-guide">※ This is an essential question</p>
     </div>
-    <div class="box" :class="isSubmit && data.name == '' ? 'error' : null">
-        <h5>4. What is your name? <span class="color-red">*</span></h5>
-        <div class="input-wrap">
-            <input type="text" placeholder="my answer" class="input-text" v-model="data.name" required />
+    <!-- 2.11 추가 -->
+    <div class="box">
+        <h5>4. What activity are you most interested in? <span class="color-red">*</span></h5>
+        <div class="check-wrap" v-for="(item, index) in activityArr" :key="index">
+            <input type="radio" :id="item" name="radio2" v-model="data.accountType" :value="item" required />
+            <label :for="item">{{ index + 1 }}. {{ item }}</label>
         </div>
-        <p class="input-guide">※ This is an essential question</p>
     </div>
+    <!-- //2.11 추가 -->
     <div class="box">
         <h5>5. Please provide the link to your primary social media account</h5>
         <div class="input-wrap">
             <input type="text" placeholder="my answer" class="input-text" v-model="data.mediaLink" required />
         </div>
     </div>
+    <div class="box" :class="isSubmit && data.name == '' ? 'error' : null">
+        <h5>6. What is your first name? <span class="color-red">*</span></h5>
+        <div class="input-wrap">
+            <input type="text" placeholder="my answer" class="input-text" v-model="data.name" required />
+        </div>
+        <p class="input-guide">※ This is an essential question</p>
+    </div>
+    <!-- 2.11 추가 -->
+    <div class="box" :class="isSubmit && data.name == '' ? 'error' : null">
+        <h5>7. What is your last name? <span class="color-red">*</span></h5>
+        <div class="input-wrap">
+            <input type="text" placeholder="my answer" class="input-text" v-model="data.name" required />
+        </div>
+        <p class="input-guide">※ This is an essential question</p>
+    </div>
+    <!-- //2.11 추가 -->
     <div class="box" :class="isSubmit && (data.email == ''|| !checkEmail) ? 'error' : null">
-        <h5>6. What is your Email address? <span class="color-red">*</span></h5>
+        <h5>8. What is your Email address? <span class="color-red">*</span></h5>
         <div class="input-wrap">
             <input type="text" placeholder="my answer" class="input-text" v-model="data.email" required />
         </div>
         <p class="input-guide">※ Please check the email</p>
     </div>
+    <!-- 2.11 추가 -->
+    <div class="box" :class="isSubmit && (data.email == ''|| !checkEmail) ? 'error' : null">
+        <h5>9. Please provide a password to use for Keverything <span class="color-red">*</span></h5>
+        <div class="input-wrap">
+            <input type="text" placeholder="my answer" class="input-text" v-model="data.email" required />
+        </div>
+        <p class="input-guide">※ Please check the email</p>
+    </div>
+    <!-- //2.11 추가 -->
     <div class="box" :class="isSubmit && data.phoneNumber == '' ? 'error' : null">
-        <h5>7. Please provide your cell number  <span class="color-red">*</span></h5>
+        <h5>10. Please provide your cell number  <span class="color-red">*</span></h5>
         <div class="input-wrap">
             <input type="text" placeholder="my answer" class="input-text" v-model="data.phoneNumber" required />
         </div>
         <p class="input-guide">※ This is an essential question</p>
     </div>
     <div class="box">
-        <h5>8. If you have any feedback or questions, feel free to leave them below</h5>
+        <h5>11. If you have any questions, feel free to leave them below.</h5>
         <div class="input-wrap">
             <input type="text" placeholder="my answer" class="input-text w-100" v-model="data.questions"/>
         </div>
