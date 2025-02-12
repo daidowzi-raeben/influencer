@@ -173,7 +173,7 @@
     </div>
     <!-- 2.11 추가 -->
     <div class="box" :class="isSubmit && (data.password == '') ? 'error' : null">
-        <h5>9. Please provide a password to use for Keverything <span class="color-red">*</span></h5>
+        <h5>9. Please provide a password to use for Keverything(All passwords are securely encrypted) <span class="color-red">*</span></h5>
         <div class="input-wrap">
             <input type="password" placeholder="my answer" class="input-text" v-model="data.password" required />
         </div>
