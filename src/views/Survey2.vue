@@ -168,6 +168,7 @@
         <h5>8. What is your Email address? <span class="color-red">*</span></h5>
         <div class="input-wrap">
             <input type="text" placeholder="my answer" class="input-text" v-model="data.email" required />
+            <button class="btn btn-input">duplicate check</button>
         </div>
         <p class="input-guide">※ Please check the email</p>
     </div>
