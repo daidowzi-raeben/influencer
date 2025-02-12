@@ -27,10 +27,13 @@
         accountType : '',
         contentType:[],
         mediaLink:'',
-        name:'',
+        firstName:'',
+        lastName:'',
+        password:'',
         email:'',
         phoneNumber:'',
-        questions:''
+        questions:'',
+        activityType:'',
     });
 
     watch(
@@ -49,13 +52,14 @@
 
         if(data.accountYn == '' || 
             data.contentType.length <= 0 ||
-            data.name == '' ||
+            data.firstName == '' ||
+            data.lastName == '' ||
             (data.email == '' || !checkEmail.value) ||
-            data.phoneNumber == '' 
+            data.phoneNumber == '' ||
+            data.activityType == ''
         ){
             return;
         }
-    
 
         try {
             const response = await fetch('https://api.3alliance.co.kr/kworld/insert.php', {
@@ -129,12 +133,13 @@
         <p class="input-guide">※ This is an essential question</p>
     </div>
     <!-- 2.11 추가 -->
-    <div class="box">
+    <div class="box" :class="isSubmit && data.activityType.length <= 0 ? 'error' : null">
         <h5>4. What activity are you most interested in? <span class="color-red">*</span></h5>
         <div class="check-wrap" v-for="(item, index) in activityArr" :key="index">
-            <input type="radio" :id="item" name="radio2" v-model="data.accountType" :value="item" required />
+            <input type="radio" :id="item" name="radio3" v-model="data.activityType" :value="item" required />
             <label :for="item">{{ index + 1 }}. {{ item }}</label>
         </div>
+        <p class="input-guide">※ This is an essential question</p>
     </div>
     <!-- //2.11 추가 -->
     <div class="box">
@@ -143,18 +148,18 @@
             <input type="text" placeholder="my answer" class="input-text" v-model="data.mediaLink" required />
         </div>
     </div>
-    <div class="box" :class="isSubmit && data.name == '' ? 'error' : null">
+    <div class="box" :class="isSubmit && data.firstName == '' ? 'error' : null">
         <h5>6. What is your first name? <span class="color-red">*</span></h5>
         <div class="input-wrap">
-            <input type="text" placeholder="my answer" class="input-text" v-model="data.name" required />
+            <input type="text" placeholder="my answer" class="input-text" v-model="data.firstName" required />
         </div>
         <p class="input-guide">※ This is an essential question</p>
     </div>
     <!-- 2.11 추가 -->
-    <div class="box" :class="isSubmit && data.name == '' ? 'error' : null">
+    <div class="box" :class="isSubmit && data.lastName == '' ? 'error' : null">
         <h5>7. What is your last name? <span class="color-red">*</span></h5>
         <div class="input-wrap">
-            <input type="text" placeholder="my answer" class="input-text" v-model="data.name" required />
+            <input type="text" placeholder="my answer" class="input-text" v-model="data.lastName" required />
         </div>
         <p class="input-guide">※ This is an essential question</p>
     </div>
@@ -167,12 +172,12 @@
         <p class="input-guide">※ Please check the email</p>
     </div>
     <!-- 2.11 추가 -->
-    <div class="box" :class="isSubmit && (data.email == ''|| !checkEmail) ? 'error' : null">
+    <div class="box" :class="isSubmit && (data.password == '') ? 'error' : null">
         <h5>9. Please provide a password to use for Keverything <span class="color-red">*</span></h5>
         <div class="input-wrap">
-            <input type="text" placeholder="my answer" class="input-text" v-model="data.email" required />
+            <input type="password" placeholder="my answer" class="input-text" v-model="data.password" required />
         </div>
-        <p class="input-guide">※ Please check the email</p>
+        <p class="input-guide">※ Please check the password</p>
     </div>
     <!-- //2.11 추가 -->
     <div class="box" :class="isSubmit && data.phoneNumber == '' ? 'error' : null">
