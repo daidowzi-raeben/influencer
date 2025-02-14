@@ -8,7 +8,6 @@
 
     const router = useRouter();
     const isSubmit = ref(false);
-    const checkEmail = ref(false);
 
     const mediaArr = ['YouTube','Facebook','Instagram','TikTok','Other'];
     const contentArr = ['Food','Beauty, Cosmetic','Fashion','Music','Life','etc'];
@@ -22,6 +21,11 @@
         }
     });
 
+    const emailCheck = reactive({
+        isMember : false,
+        checkEmail : false,
+        isValidEmail : false,
+    });
     const data = reactive({
         accountYn : '',
         accountType : '',
@@ -35,18 +39,48 @@
         questions:'',
         activityType:'',
     });
+    
 
     watch(
-        () => data.email,
-        (newVal) => {
-            if (newVal) {
-                checkEmail.value = validateEmail(newVal);
-                console.log(checkEmail);
-            }
+    () => data.email,
+    (newVal) => {
+        if (newVal) {
+         emailCheck.checkEmail = false;   
         }
-    );
+    });
+        
+    
+    const checkEmailValidation = async () =>{
+
+        emailCheck.checkEmail = true;
+        emailCheck.isValidEmail = validateEmail(data.email);
+        if(!emailCheck.isValidEmail) return;
+
+        const param = {
+            mode : 'duplicateMail',
+            mb_email : data.email
+        }
+        const response = await fetch('https://api.3alliance.co.kr/kworld/login.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json', 
+            },
+            body: JSON.stringify(param),
+            });
+            const result = await response.json(); 
+
+            if(result != ''){
+                emailCheck.isMember = result.result != 'SUCCESS';
+            }
+    }
 
     const submit = async()=>{
+
+        const button = document.getElementById("submitButton");
+        button.disabled = true;  // 버튼 비활성화
+        setTimeout(() => {
+        button.disabled = false;  // 1초 후 다시 활성화
+        }, 1000);
 
         isSubmit.value=true;
 
@@ -54,13 +88,14 @@
             data.contentType.length <= 0 ||
             data.firstName == '' ||
             data.lastName == '' ||
-            (data.email == '' || !checkEmail.value) ||
+            (data.email == '' || !emailCheck.isValidEmail) ||
             data.phoneNumber == '' ||
-            data.activityType == ''
+            data.activityType == '' ||
+            emailCheck.isMember ||
+            !emailCheck.checkEmail
         ){
             return;
         }
-
         try {
             const response = await fetch('https://api.3alliance.co.kr/kworld/insert.php', {
             method: 'POST',
@@ -71,7 +106,7 @@
             });
             console.log("response>>>",response);
             if(response != ''){
-
+                
             }
         } catch (error) {
             console.log(error);
@@ -164,21 +199,31 @@
         <p class="input-guide">※ This is an essential question</p>
     </div>
     <!-- //2.11 추가 -->
-    <div class="box" :class="isSubmit && (data.email == ''|| !checkEmail) ? 'error' : null">
+    <div class="box" :class="(emailCheck.checkEmail||isSubmit) && (data.email === '' || !emailCheck.isValidEmail) || emailCheck.isMember ? 'error' : null">
         <h5>8. What is your Email address? <span class="color-red">*</span></h5>
         <div class="input-wrap">
             <input type="text" placeholder="my answer" class="input-text" v-model="data.email" required />
-            <button class="btn btn-input">duplicate check</button>
+            <button class="btn btn-input" @click="checkEmailValidation()">duplicate check</button>
         </div>
-        <p class="input-guide">※ Please check the email</p>
-    </div>
+        <p v-if="data.email === '' || !emailCheck.isValidEmail || !emailCheck.checkEmail" class="input-guide">
+            ※ Please check the email
+        </p>
+        <p v-else-if="emailCheck.checkEmail && emailCheck.isMember" class="input-guide">
+            ※ That Email is already in use
+        </p>
+        <p v-else class="text-primary">
+            ※ That Email is available for use
+        </p>
+        </div>
     <!-- 2.11 추가 -->
     <div class="box" :class="isSubmit && (data.password == '') ? 'error' : null">
         <h5>9. Please provide a password to use for Keverything(All passwords are securely encrypted) <span class="color-red">*</span></h5>
         <div class="input-wrap">
             <input type="password" placeholder="my answer" class="input-text" v-model="data.password" required />
         </div>
-        <p class="input-guide">※ Please check the password</p>
+        <p class="input-guide">
+           ※ Please check the password
+        </p>
     </div>
     <!-- //2.11 추가 -->
     <div class="box" :class="isSubmit && data.phoneNumber == '' ? 'error' : null">
@@ -198,7 +243,7 @@
   <div class="btn-wrap">
       <div>
         <router-link to="/" class="btn">back</router-link>
-        <button @click="submit" class="btn btn-primary">submit</button>
+        <button @click="submit" id="submitButton" class="btn btn-primary">submit</button>
       </div>
   </div>
 </template>
