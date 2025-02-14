@@ -92,7 +92,8 @@
             data.phoneNumber == '' ||
             data.activityType == '' ||
             emailCheck.isMember ||
-            !emailCheck.checkEmail
+            !emailCheck.checkEmail ||
+            data.password.length < 8
         ){
             return;
         }
@@ -216,13 +217,13 @@
         </p>
         </div>
     <!-- 2.11 추가 -->
-    <div class="box" :class="isSubmit && (data.password == '') ? 'error' : null">
+    <div class="box" :class="isSubmit && (data.password.length < 8) ? 'error' : null">
         <h5>9. Please provide a password to use for Keverything(All passwords are securely encrypted) <span class="color-red">*</span></h5>
         <div class="input-wrap">
             <input type="password" placeholder="my answer" class="input-text" v-model="data.password" required />
         </div>
         <p class="input-guide">
-           ※ Please check the password
+           ※ Length must be greater than 8 characters
         </p>
     </div>
     <!-- //2.11 추가 -->
